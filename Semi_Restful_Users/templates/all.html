@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .home{
+        float:right;
+    }
+    </style>
+<body>
+    <h1>All Users</h1>
+    <a class="home" href="/users">Home</a>
+    <table class="table table-stripe">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in friends %}
+            <tr>
+                <td><a href="/users/{{user['friend_id']}}">{{user['friend_id']}}</a></td>
+                <td>{{user["first_name"]}} {{user["last_name"]}}</td>
+                <td>{{user["email"]}}</td>
+                <td>{{user["created_at"]}}</td>
+                <td>
+                    <a href="/users/{{user['friend_id']}}">Show</a>
+                    <a href="/users/{{user['friend_id']}}/edit">Edit</a>
+                    <a href="/users/{{user['friend_id']}}/destroy">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/users/new">Add a New User</a>
+
+</body>
+</html>

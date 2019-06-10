@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semi Useful Users</title>
+</head>
+<style>
+    .container{
+        text-align:center;
+    }
+    form{
+        display:block;
+        margin: 10px auto;
+        text-align:left;
+        width:400px;
+    }
+    input{
+        display:block;
+        margin: 10px auto;
+        text-align:left;
+        width:400px;
+    }
+    .home{
+        float:right;
+    }
+    button{
+        margin:0px auto;
+    }
+</style>
+<body class="container">
+        <a class="home" href="/users">Home</a>
+    <h1>Add a New User</h1>
+    <form action="/create" method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" placeholder="First name here">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" placeholder="Last name here">
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="Email here">
+        <button class="btn btn-success">Create</button>
+    </form>
+</body>
+</html>

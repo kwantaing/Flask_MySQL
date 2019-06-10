@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Pets</title>
+</head>
+<style>
+body{
+    text-align:center;
+}
+
+</style>
+<body class="container">
+    <h1>All the Pets!</h1>
+    <table class= "table table-striped">
+        <thead>
+            <tr>
+                <th>Pet Id</th>
+                <th>name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pet in pets %}
+            <tr>
+                <td>{{pet.pet_id}}</td>
+                <td>{{pet["name"]}}</td>
+                <td>{{pet.type}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <h1>Add a Pet!</h1>
+    <form action="/addpet" method="post">
+        <label for="Name"></label>
+        <input type="text" name="name" placeholder="Pet Name Here!">
+        <label for="Type"></label>
+        <input type="text" name="type" placeholder="Pet Type Here!">
+        <button>Submit!</button>
+    </form>
+</body>
+</html>

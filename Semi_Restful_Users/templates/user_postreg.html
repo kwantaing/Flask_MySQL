@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align:center;
+    }
+        .home{
+        margin-right:4px;;
+    }
+</style>
+<body>
+    <h1>User {{result[0]["friend_id"]}}</h1>
+    <a class="home" href="/users">Home</a>
+    <p>Full Name: {{result[0]["first_name"]}} {{result[0]["last_name"]}}</p>
+    <p>Email: {{result[0]["email"]}}</p>
+    <p>Created On: {{result[0]["created_at"]}}</p>
+    <p>Last Updated On: {{result[0]["updated_at"]}}</p>
+</body>
+</html>
