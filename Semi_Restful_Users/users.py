@@ -19,7 +19,7 @@ def add_user():
         "last_name"  : request.form['last_name'],
         "email"      : request.form['email']
     }
-    query = "INSERT INTO friends (first_name, last_name, email, created_at, updated_at) VALUES( %(first_name)s, %(last_name)s, %(email)s, NOW(), NOW())"
+    query = "INSERT INTO friends (first_name, last_name, email, created_at, updated_at) VALUES( %(first_name)s, %(last_name)s, %(email)s,   NOW(), NOW())"
     friends = mysql.query_db(query,data)
     print(friends)
     return redirect(url_for('info',id=friends))
@@ -32,6 +32,7 @@ def all():
     result = mysql.query_db(query)
     print(result)
     return render_template("all.html", friends=result)
+    
 @app.route('/users/<id>')
 def info(id):
     mysql = connectToMySQL("semi_users")

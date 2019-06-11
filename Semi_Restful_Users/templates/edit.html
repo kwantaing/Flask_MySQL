@@ -26,20 +26,24 @@
     .home{
         float:right;
     }
+    textarea{
+        width:400px;
+        height:75px;
+    }
 </style>
 <body>
     <h1>Edit User {{result[0]["friend_id"]}}</h1>
     <a class="home" href="/users">Home</a>
     <form action="/update" method="post">
         <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" value="{{result[0]["first_name"]}}">
+        <input type="text" name="first_name" value='{{result[0]["first_name"]}}'>
         <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" value="{{result[0]["last_name"]}}">
+        <input type="text" name="last_name" value='{{result[0]["last_name"]}}'>
         <label for="email">Email:</label>
-        <input type="text" name="email" value="{{result[0]["email"]}}">
+        <input type="text" name="email" value='{{result[0]["email"]}}'>
         <input type="hidden" name="friend_id" value='{{result[0]["friend_id"]}}'>
         <button class="btn btn-success">Update</button>
     </form>
-    <button class="btn btn-success"><a href="/users/{{result[0]["friend_id"]}}">Show User</a></button>
+    <button class="btn btn-success"><a href="/users/{{result[0]['friend_id']}}">Show User</a></button>
 </body>
 </html>
