@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
 </head>
+<style>
+    .flash{
+        color:red;
+    }
+</style>
 <body>
     <div class="container" style = "width:60%">
         <h2 style="text-align:center">Dojo Survey</h2>
@@ -14,7 +19,7 @@
                 <label for="Your_Name">Your Name</label>
                 <input style="float:right"type="text" name="name" placeholder = "Name">
 
-
+                <p></p>
                 <label for="location">Dojo Location</label>
                 <select class="form-control" id="location" name = "location">
                     <option value="Orange County">Orange County</option>
@@ -34,8 +39,15 @@
                 
                 <label for="comment">Comment (optional)</label>
                 <textarea rows="5" class="form-control" name="comment"></textarea>
+                {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p class='flash'>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
 
-                <button style="text-align:center" class="btn btn-success">Submit</button>
+                <button style="margin:10px 10px 10px 36%" class="btn btn-success">Submit</button>
 
 
         </form>

@@ -10,12 +10,28 @@
 <body>
     <h2>Submitted Info</h2>
         <table class="table table-bordered">
-            {% for key,value in result.items() %}
-            <tr>
-                <th>{{key}}</th>
-                <td>{{value}}</td>
+            <tr> 
+                <th>Name</th>
+                <td>{{result[0]["name"]}}</td>
             </tr>
-            {% endfor %}
+            <tr> 
+                <th>Location</th>
+                <td>{{result[0]["location"]}}</td>
+            </tr>
+            <tr> 
+                <th>Favorite Language</th>
+                <td>{{result[0]["fav_language"]}}</td>
+            </tr>
+            <tr> 
+                <th>Comments</th>
+                <td>{{result[0]["comment"]}}</td>
+            </tr>
+            <tr>
+                <th>Created at</th>
+                <td>{{result[0]["created_at"]}}</td>
+            </tr>
+            <tr></tr>
         </table>
+        <a href="/">Go Back</a>
 </body>
 </html>
