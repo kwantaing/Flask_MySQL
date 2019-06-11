@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        background-color:lightgray
+    }
+        .header{
+            display:inline-block;
+            text-align:center;
+            padding-top:40px;
+            margin-top:10px;
+            background-color:rgb(41, 235, 57);
+            color:white;
+            font-size:20px;
+            border-radius: 5px;
+            width:100%;
+            height:100px;
+        }
+    
+    </style>
+<body class="container">
+    <a href="/">Home</a>
+    <div class="header">
+        <p>Email List Database</p>
+            </div>
+    <table class="table table-striped">
+        <thead>
+            <th>#</th>
+            <th>Email</th>
+            <th>Submitted At</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for email in emails %}
+                <tr>
+                    <td>{{email["id"]}}</td>
+                    <td>{{email["email"]}}</td>
+                    <td>{{email["created_at"]}}</td>
+                    <td><a href="/delete/{{email['id']}}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
