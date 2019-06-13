@@ -38,6 +38,7 @@ def submit():
 
 # @app.route('/print')
 # def print():
+
 @app.route("/delete/<id>")
 def delete(id):
     mysql = connectToMySQL("email_valid")

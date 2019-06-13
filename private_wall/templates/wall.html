@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        background-color:darkgray;
+    }
+    .header{
+        position:relative;
+    }
+        .header h1{
+            display:inline-block;
+        }
+        .header h2{
+            position:absolute;
+            right:1px;
+            top:0px;
+        }
+    .main{
+        position:relative;
+    }
+        .show_messages{
+            vertical-align:top;
+            display:inline-block;
+            width:48%;
+            background-color:lightblue;
+            min-height:600px;
+            padding:10px;
+            position:absolute;
+            left:0;
+        }
+        .show_message{
+            vertical-align:top;
+            background-color:lightgray;
+            padding:10px;
+            width:90%;
+            text-align:center;
+            margin:10px;
+        }
+        .send_messages{
+            vertical-align:top;
+            display:inline-block;
+            width:49%;
+            background-color:lightgray;
+            padding:10px;
+            position:absolute;
+            right:0;
+        }
+        .send_message{
+            vertical-align:top;
+            background-color:lightblue;
+            padding:10px;
+            width:90%;
+            margin:10px;
+            text-align:center;
+        }
+        textarea{
+            width:80%;
+            height:60px;
+        }
+</style>
+<body>
+    <header class="header">
+        <h1>CodingDojo Wall</h1>
+        <h2 >Welcome {{user[0]["first_name"]}}!<a href="/logout">    Log Out</a></h2>
+
+    </header>
+    <div class="main">
+        <div class="show_messages">
+            <h1>{{session["msg_count"]}} Message(s) for You</h1>
+            {% for message in messages %}
+                <form action="/delete_msg" method="post"> 
+                    <div class="show_message">
+                        <input type="hidden" name="message_id" value="{{message['message_id']}}">
+                        <p>{{message["first_name"]}} said at {{message["created_at"]}}:</p>
+                        <p>{{message["content"]}}</p>
+                        <button>Delete</button>
+                    </div>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="send_messages">
+            <h1>Send Messages</h1>
+            <div class="send_message">
+                {% for recipient in recipients %}
+                    <form action="/send" method="post">
+                        <h4>{{recipient["first_name"]}}</h4>
+                        <input type="hidden" name="recipient_id" value ="{{recipient['user_id']}}">
+                        <textarea name="message"></textarea>
+                        <button>Send</button>
+                    </form>
+                {% endfor %}
+            </div>
+        </div>        
+    </div>
+
+</body>
+</html>
